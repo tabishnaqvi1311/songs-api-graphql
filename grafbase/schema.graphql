@@ -1,0 +1,25 @@
+type Song @model {
+  title: String!
+  duration: Int!
+  artist: Artist!
+  album: Album!
+  streams: Int @default(value: 0)
+}
+
+type Artist @model{
+  name: String!
+  songs: [Song]
+  album: [Album]
+}
+
+type Album @model{
+  title: String!
+  releaseYear: Int!
+  artist: Artist!
+  song: [Song!]
+}
+
+type Like @model {
+  count: Int
+  song: Song!
+}
